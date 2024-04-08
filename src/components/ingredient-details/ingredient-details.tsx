@@ -7,10 +7,8 @@ import { selectIngredients } from '../../slices/ingredientsSlice';
 
 
 export const IngredientDetails: FC = () => {
-  /** TODO: взять переменную из стора */
-
-  const allIngredients = useSelector(selectIngredients);
   
+  const allIngredients = useSelector(selectIngredients);
   const params = useParams();
   const current = params.id;
 

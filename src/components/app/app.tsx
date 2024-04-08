@@ -7,15 +7,13 @@ import {
   ForgotPassword,
   ResetPassword,
   Profile,
-  ProfileOrders,
-  
+  ProfileOrders
 } from '@pages';
 import {
   AppHeader,
   Modal,
   OrderInfo,
-  IngredientDetails,
-
+  IngredientDetails
 } from '@components';
 import '../../index.css';
 import styles from './app.module.css';
@@ -55,9 +53,11 @@ const App = () => {
       <AppHeader />
         <Routes location={background || currentLocation}>
           <Route path='/' element={<ConstructorPage/>} />
-          <Route path='/feed' element={<Feed/>} />
           <Route path='/ingredients/:id' element={<IngredientDetails />} />
-          
+          <Route path='/feed' element={<Feed/>} />    
+          <Route path='/feed/:number' element = {<OrderInfo />} />
+
+
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
@@ -72,7 +72,7 @@ const App = () => {
         {background && (
           <Routes>
               <Route path='/feed/:number' element={
-                <Modal title={'Инф о заказе'} onClose={handleClose} >
+                <Modal title={'Информация о заказе'} onClose={handleClose} >
                   <OrderInfo />
                 </Modal>}
               />

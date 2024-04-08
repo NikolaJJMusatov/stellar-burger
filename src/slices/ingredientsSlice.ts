@@ -1,9 +1,8 @@
-import {  createAsyncThunk, createSlice, PayloadAction, } from '@reduxjs/toolkit';
+import {  createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getIngredientsApi } from '@api';
 import { TIngredient, TConstructorIngredient } from '@utils-types';
 
 interface IingredientsListState {
-
   ingredients: TIngredient[],
   isLoading: boolean,
   error: string | undefined
@@ -40,7 +39,6 @@ const ingredientsSlice = createSlice({
     selectors: {
         selectIngredients: (sliceState) =>
             sliceState.ingredients,
-
 
         selectIngredientsIsLoading: (sliceState) => sliceState.isLoading,
 
