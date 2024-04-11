@@ -5,9 +5,7 @@ import { IngredientDetailsUI } from '../ui/ingredient-details';
 import { useSelector } from '../../services/store';
 import { selectIngredients } from '../../slices/ingredientsSlice';
 
-
 export const IngredientDetails: FC = () => {
-  
   const allIngredients = useSelector(selectIngredients);
   const params = useParams();
   const current = params.id;

@@ -3,18 +3,17 @@ import { getOrderByNumberApi } from '@api';
 import { TOrder } from '@utils-types';
 
 interface IOrderByNumberFromApiState {
-  orders: TOrder[],
-  isLoading: boolean,
-  error: string | undefined
+  orders: TOrder[];
+  isLoading: boolean;
+  error: string | undefined;
 };
 
 export const fetchOrderByNumberFromApi = createAsyncThunk(
-    'orderByNumberFromApi/fetchOrderByNumberFromApi',
-      async (number: number) => 
-        getOrderByNumberApi(number)
+  'orderByNumberFromApi/fetchOrderByNumberFromApi',
+  async (number: number) => getOrderByNumberApi(number)
 );
 
-const initialState: IOrderByNumberFromApiState  = {
+const initialState: IOrderByNumberFromApiState = {
   orders: [],
   isLoading: false,
   error: undefined
@@ -23,8 +22,7 @@ const initialState: IOrderByNumberFromApiState  = {
 const orderByNumberFromApiSlice = createSlice({
   name: 'orderByNumberFromApi',
   initialState,
-  reducers: {
-  },
+  reducers: {},
 
   selectors: {
     selectOrdersByNumberFromApi: (sliceState) => sliceState.orders,
@@ -42,12 +40,12 @@ const orderByNumberFromApiSlice = createSlice({
       })
       .addCase(fetchOrderByNumberFromApi.fulfilled, (sliceState, action) => {
         sliceState.isLoading = false;
-        sliceState.orders = action.payload.orders
-      })
+        sliceState.orders = action.payload.orders;
+      });
   }
 });
 
-export const { 
+export const {
   selectOrdersByNumberFromApi,
   selectOrdersByNumberIsLoading
 } = orderByNumberFromApiSlice.selectors;

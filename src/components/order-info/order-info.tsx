@@ -3,7 +3,7 @@ import { Preloader } from '../ui/preloader';
 import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient, TOrder } from '@utils-types';
 import { useSelector, useDispatch } from '../../services/store';
-import { 
+import {
   selectOrdersByNumberFromApi,
   fetchOrderByNumberFromApi,
   selectOrdersByNumberIsLoading
@@ -12,7 +12,6 @@ import { selectIngredients } from '../../slices/ingredientsSlice';
 import { useParams } from 'react-router-dom';
 
 export const OrderInfo: FC = () => {
-
   const isLoadingOrderByNumber = useSelector(selectOrdersByNumberIsLoading);
   const dispatch = useDispatch();
   const numberOrder = Number(useParams().number);
@@ -22,7 +21,7 @@ export const OrderInfo: FC = () => {
   }, []);
 
   const ordersData: TOrder[] = useSelector(selectOrdersByNumberFromApi);
-  const orderData =  ordersData.find((order) => order);
+  const orderData = ordersData.find((order) => order);
   const ingredients: TIngredient[] = useSelector(selectIngredients);
 
   const orderInfo = useMemo(() => {

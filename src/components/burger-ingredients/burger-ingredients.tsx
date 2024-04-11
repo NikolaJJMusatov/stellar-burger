@@ -6,7 +6,6 @@ import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 import { selectIngredients } from '../../slices/ingredientsSlice';
 
 export const BurgerIngredients: FC = () => {
-  /** TODO: взять переменные из стора */
 
   const allIngredients = useSelector(selectIngredients);
 
@@ -68,8 +67,6 @@ export const BurgerIngredients: FC = () => {
       titleSaucesRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  //return null
-
   return (
     <BurgerIngredientsUI
       currentTab={currentTab}
@@ -85,5 +82,4 @@ export const BurgerIngredients: FC = () => {
       onTabClick={onTabClick}
     />
   );
-
 };

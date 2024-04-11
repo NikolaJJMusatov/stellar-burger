@@ -1,22 +1,21 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getFeedsApi } from '@api';
 import { TOrder } from '@utils-types';
 
 interface IAllOrdersFromApiState {
-  feeds: TOrder[],
-  total: number,
-  totalToday: number,
-  isLoading: boolean,
-  error: string | undefined
+  feeds: TOrder[];
+  total: number;
+  totalToday: number;
+  isLoading: boolean;
+  error: string | undefined;
 }
 
 export const fetchAllOrdersFromApi = createAsyncThunk(
   'allOrdersFromApi/fetchAllOrdersFromApi',
-    async () => 
-      getFeedsApi()
+  async () => getFeedsApi()
 );
 
-const initialState: IAllOrdersFromApiState  = {
+const initialState: IAllOrdersFromApiState = {
   feeds: [],
   total: 0,
   totalToday: 0,
@@ -24,18 +23,16 @@ const initialState: IAllOrdersFromApiState  = {
   error: undefined
 };
 
-
 const allOrdersFromApiSlice = createSlice({
   name: 'allOrdersFromApi',
   initialState,
-  reducers: {
-  },
+  reducers: {},
 
   selectors: {
-   selectAllOrdersFromApi: (sliceState) => sliceState.feeds,
-   selectAllOrdersFromApiIsLoading: (sliceState) => sliceState.isLoading,
-   selectAllOrdersFromApiTotal: (sliceState) => sliceState.total,
-   selectAllOrdersFromApiTotalToday: (sliceState) => sliceState.totalToday,
+    selectAllOrdersFromApi: (sliceState) => sliceState.feeds,
+    selectAllOrdersFromApiIsLoading: (sliceState) => sliceState.isLoading,
+    selectAllOrdersFromApiTotal: (sliceState) => sliceState.total,
+    selectAllOrdersFromApiTotalToday: (sliceState) => sliceState.totalToday
   },
 
   extraReducers: (builder) => {
@@ -51,17 +48,16 @@ const allOrdersFromApiSlice = createSlice({
         sliceState.isLoading = false;
         sliceState.feeds = action.payload.orders;
         sliceState.total = action.payload.total;
-        sliceState.totalToday = action.payload.totalToday
-      })
+        sliceState.totalToday = action.payload.totalToday;
+      });
   }
 });
 
-export const { 
+export const {
   selectAllOrdersFromApi,
   selectAllOrdersFromApiIsLoading,
   selectAllOrdersFromApiTotal,
   selectAllOrdersFromApiTotalToday
-  
 } = allOrdersFromApiSlice.selectors;
 
 export default allOrdersFromApiSlice.reducer;

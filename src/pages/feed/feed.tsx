@@ -3,10 +3,12 @@ import { FeedUI } from '@ui-pages';
 import { TOrder } from '@utils-types';
 import { FC, useEffect } from 'react';
 import { useSelector, useDispatch } from '../../services/store';
-import { fetchAllOrdersFromApi, selectAllOrdersFromApi } from '../../slices/allOrdersFromApiSlice';
+import {
+  fetchAllOrdersFromApi,
+  selectAllOrdersFromApi
+} from '../../slices/allOrdersFromApiSlice';
 
 export const Feed: FC = () => {
-
   const orders: TOrder[] = useSelector(selectAllOrdersFromApi);
   const dispatch = useDispatch();
 
@@ -19,6 +21,11 @@ export const Feed: FC = () => {
   }
 
   return (
-    <FeedUI orders={orders} handleGetFeeds={() => {dispatch(fetchAllOrdersFromApi())}} />
-  )
+    <FeedUI
+      orders={orders}
+      handleGetFeeds={() => {
+        dispatch(fetchAllOrdersFromApi());
+      }}
+    />
+  );
 };

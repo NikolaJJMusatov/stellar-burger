@@ -3,6 +3,8 @@ import ingredientsReducer from '../slices/ingredientsSlice';
 import burgerConstructorReducer from '../slices/burgerConstructoSlice';
 import allOrdersFromApiReducer from '../slices/allOrdersFromApiSlice';
 import orderByNumberFromApiReducer from '../slices/orderByNumberFromApiSlice';
+import userSliceReducer from '../slices/userSlice';
+import ordersUserSliceReducer from '../slices/ordersUserSlice';
 
 import {
   TypedUseSelectorHook,
@@ -15,7 +17,8 @@ const rootReducer = combineReducers({
   burgerConstructor: burgerConstructorReducer,
   allOrdersFromApi: allOrdersFromApiReducer,
   orderByNumberFromApi: orderByNumberFromApiReducer,
-  
+  user: userSliceReducer,
+  ordersUser: ordersUserSliceReducer
 });
 
 export const store = configureStore({
@@ -28,4 +31,3 @@ export type AppDispatch = typeof store.dispatch;
 
 export const useDispatch: () => AppDispatch = () => dispatchHook();
 export const useSelector: TypedUseSelectorHook<RootState> = selectorHook;
-
