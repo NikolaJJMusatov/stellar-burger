@@ -6,7 +6,7 @@ import {
   clearErrorUserState,
   selectUserError
 } from '../../slices/userSlice';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 
 export const Register: FC = () => {
   const [userName, setUserName] = useState('');

@@ -36,7 +36,9 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchIngredients());
-    dispatch(fetchGetUser());
+    if (localStorage.getItem('refreshToken')) {
+      dispatch(fetchGetUser());
+    };
   }, []);
 
   return (
