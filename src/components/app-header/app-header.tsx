@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { AppHeaderUI } from '@ui';
 import { useSelector } from '../../services/store';
-import { selectUserProfileName } from '../../slices/userSlice';
+import { selectUserProfileName } from '../../slices/userSlice/userSlice';
 
 export const AppHeader: FC = () => {
   const userProfileName = useSelector(selectUserProfileName);

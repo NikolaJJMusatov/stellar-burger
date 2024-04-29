@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from '../../services/store';
 import {
   fetchAllOrdersFromApi,
   selectAllOrdersFromApi
-} from '../../slices/allOrdersFromApiSlice';
+} from '../../slices/allOrdersFromApiSlice/allOrdersFromApiSlice';
 
 export const Feed: FC = () => {
   const orders: TOrder[] = useSelector(selectAllOrdersFromApi);

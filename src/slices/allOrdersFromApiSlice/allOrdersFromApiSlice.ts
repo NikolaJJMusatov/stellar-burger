@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../../utils/burger-api';
 import { TOrder } from '@utils-types';
 
 interface IAllOrdersFromApiState {
@@ -15,7 +15,7 @@ export const fetchAllOrdersFromApi = createAsyncThunk(
   async () => getFeedsApi()
 );
 
-const initialState: IAllOrdersFromApiState = {
+export const initialState: IAllOrdersFromApiState = {
   feeds: [],
   total: 0,
   totalToday: 0,

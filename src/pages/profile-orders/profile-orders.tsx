@@ -7,7 +7,7 @@ import {
   selectHistoryOrdersUser,
   selectRequestToApiOrdersUser,
   fetchGetOrdersApiUser
-} from '../../slices/ordersUserSlice';
+} from '../../slices/ordersUserSlice/ordersUserSlice';
 
 export const ProfileOrders: FC = () => {
   const dispatch = useDispatch();

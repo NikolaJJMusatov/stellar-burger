@@ -5,7 +5,7 @@ import {
   selectUserError,
   selectUserIsInit,
   clearErrorUserState
-} from '../../slices/userSlice';
+} from '../../slices/userSlice/userSlice';
 import { useDispatch } from '../../services/store';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from '../../services/store';

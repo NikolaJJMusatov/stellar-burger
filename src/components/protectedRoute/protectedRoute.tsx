@@ -6,7 +6,7 @@ import {
   selectUserIsInit,
   selectUserProfileName,
   selectUserIsReguestLoginApi
-} from '../../slices/userSlice';
+} from '../../slices/userSlice/userSlice';
 
 type ProtectedRouteProps = {
   children: React.ReactElement;

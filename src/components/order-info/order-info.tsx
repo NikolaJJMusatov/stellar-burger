@@ -7,8 +7,8 @@ import {
   selectOrdersByNumberFromApi,
   fetchOrderByNumberFromApi,
   selectOrdersByNumberIsLoading
-} from '../../slices/orderByNumberFromApiSlice';
-import { selectIngredients } from '../../slices/ingredientsSlice';
+} from '../../slices/orderByNumberFromApiSlice/orderByNumberFromApiSlice';
+import { selectIngredients } from '../../slices/ingredientsSlice/ingredientsSlice';
 import { useParams } from 'react-router-dom';
 
 export const OrderInfo: FC = () => {

@@ -7,8 +7,8 @@ import {
   updateUserApi,
   TRegisterData,
   TLoginData
-} from '@api';
-import { setCookie, deleteCookie } from '../utils/cookie';
+} from '../../utils/burger-api';
+import { setCookie, deleteCookie } from '../../utils/cookie';
 import { TUser } from '@utils-types';
 
 interface IUserState {
@@ -51,7 +51,7 @@ export const fetchUpdateUserData = createAsyncThunk(
   async (updateUserData: TRegisterData) => await updateUserApi(updateUserData)
 );
 
-const initialState: IUserState = {
+export const initialState: IUserState = {
   profile: {
     email: '',
     name: ''
@@ -67,9 +67,10 @@ const userSlice = createSlice({
   reducers: {
     userLogout: (sliceState) => {
       sliceState.profile = { email: '', name: '' };
+      sliceState.isInit = false;
     },
     clearErrorUserState: (sliceState) => {
-      sliceState.error = '';
+      sliceState.error = undefined;
     }
   },
 
