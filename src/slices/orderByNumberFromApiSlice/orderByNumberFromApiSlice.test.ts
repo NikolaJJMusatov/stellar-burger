@@ -1,12 +1,10 @@
 import { expect, test, describe } from '@jest/globals';
-import orderByNumberFromApiSlice, { fetchOrderByNumberFromApi } from './orderByNumberFromApiSlice';
+import orderByNumberFromApiSlice, {
+  fetchOrderByNumberFromApi,
+  initialState
+} from './orderByNumberFromApiSlice';
 
 describe('проверяем редьюсер orderByNumberFromApiSlice', () => {
-  const initialState = {
-    orders: [],
-    isLoading: false,
-    error: undefined
-  };
 
   test('обработка экшена fetchOrderByNumberFromApi.pending', () => {
     const action = { type: fetchOrderByNumberFromApi.pending.type };

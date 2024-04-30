@@ -2,17 +2,11 @@ import { expect, test, describe } from '@jest/globals';
 import ordersUserSlice, {
   fetchOrderUser,
   fetchGetOrdersApiUser,
-  clearOrderUser
+  clearOrderUser,
+  initialState
 } from './ordersUserSlice';
 
 describe('проверяем редьюсер ordersUserSlice', () => {
-  const initialState = {
-    historyOrdersUser: [],
-    orderUser: null,
-    requestToApi: false,
-    orderRequest: false,
-    error: undefined
-  };
 
   describe('проверка экшенов fetchOrderUser', () => {
     test('обработка экшена fetchOrderUser.pending', () => {

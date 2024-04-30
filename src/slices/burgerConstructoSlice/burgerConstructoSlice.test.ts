@@ -1,11 +1,12 @@
-import { addIngredientsBurger,
+import burgerConstructoSlice, {
+  addIngredientsBurger,
   removeIngredientFromBurger,
   clearBurgerConstructor,
   moveUpIngredientInBurger,
-  moveDownIngredientInBurger
+  moveDownIngredientInBurger,
+  initialState
 } from "./burgerConstructoSlice";
-import { rootReducer } from "../../services/store";
-import { configureStore } from '@reduxjs/toolkit';
+import { store } from '../../services/store';
 
 describe('проверяем редьюсер burgerConstructoSlice', () => {
 
@@ -53,7 +54,7 @@ describe('проверяем редьюсер burgerConstructoSlice', () => {
     "image_mobile": "https://code.s3.yandex.net/react/code/meat-02-mobile.png",
     "image_large": "https://code.s3.yandex.net/react/code/meat-02-large.png",
     "__v": 0,
-    "id": "testId1"
+    "id": testId
   };
   const testMainIngredient3 = {
     "_id": "643d69a5c3f7b9001cfa0941",
@@ -71,54 +72,47 @@ describe('проверяем редьюсер burgerConstructoSlice', () => {
     "id": "testId2"
   };
 
-  const store = configureStore({
-    reducer: rootReducer,
-    preloadedState: {
-      burgerConstructor: {
-        constructorItems: {
-          bun: null,
-          ingredients: [
-            testMainIngredient2,
-            testMainIngredient3
-          ]
-        }
-      }
-    }
-  });
-
   test('обработка экшена добавления ингредиента', () => {
+
     const actionAddBun = addIngredientsBurger(testBunIngredient);
     const actionAddMain = addIngredientsBurger(testMainIngredient1);
 
-    store.dispatch(actionAddBun);
-    store.dispatch(actionAddMain);
+    const stateWithBun = burgerConstructoSlice(initialState, actionAddBun).constructorItems.bun;
+    const stateWithMain = burgerConstructoSlice(initialState, actionAddMain).constructorItems.ingredients[0];
 
-    const actualWithBun = store.getState().burgerConstructor.constructorItems.bun;
-    const actualWithMain = store.getState().burgerConstructor.constructorItems.ingredients[2];
-    expect(actualWithBun).toEqual(testBunIngredient);
-    expect(actualWithMain).toEqual(testMainIngredient1);
+    expect(stateWithBun).toEqual(testBunIngredient);
+    expect(stateWithMain).toEqual(testMainIngredient1);
   });
 
   test('обработка экшена удаления ингредиента', () => {
-    const expectInitialState = {
+
+    const initialState = {
       constructorItems: {
         bun: testBunIngredient,
         ingredients: [
           testMainIngredient2,
-          testMainIngredient1
+          testMainIngredient3
         ]
       }
     };
 
-    const actionRemoveMain = removeIngredientFromBurger(testMainIngredient3);
+    const expectInitialState = {
+      constructorItems: {
+        bun: testBunIngredient,
+        ingredients: [
+          testMainIngredient2
+        ]
+      }
+    };
 
-    store.dispatch(actionRemoveMain);
+    const actionRemoveMain3 = removeIngredientFromBurger(testMainIngredient3);
+    const stateWithoutMain3 = burgerConstructoSlice(initialState, actionRemoveMain3);
+    expect(expectInitialState).toEqual(stateWithoutMain3);
 
-    const actualWithOutMain = store.getState().burgerConstructor;
-    expect(expectInitialState).toEqual(actualWithOutMain);
   });
-
+  
   test('обработка экшена перемещения вверх ингредиента в начинке', () => {
+
     const expectInitialState = {
       constructorItems: {
         bun: testBunIngredient,
@@ -130,11 +124,18 @@ describe('проверяем редьюсер burgerConstructoSlice', () => {
     };
 
     const actionMoveUpIngredient = moveUpIngredientInBurger(1);
+    const actionAddBun = addIngredientsBurger(testBunIngredient);
+    const actionAddMain2 = addIngredientsBurger(testMainIngredient2);
+    const actionAddMain1 = addIngredientsBurger(testMainIngredient1);
 
+    store.dispatch(actionAddBun);
+    store.dispatch(actionAddMain2);
+    store.dispatch(actionAddMain1);
     store.dispatch(actionMoveUpIngredient);
 
     const actualWithMoveUpIngredient = store.getState().burgerConstructor.constructorItems.ingredients;
     expect(expectInitialState.constructorItems.ingredients).toEqual(actualWithMoveUpIngredient);
+    store.dispatch(clearBurgerConstructor());
   });
 
   test('обработка экшена перемещения вниз ингредиента в начинке', () => {
@@ -149,11 +150,18 @@ describe('проверяем редьюсер burgerConstructoSlice', () => {
     };
 
     const actionMoveDownIngredient = moveDownIngredientInBurger(0);
+    const actionAddBun = addIngredientsBurger(testBunIngredient);
+    const actionAddMain1 = addIngredientsBurger(testMainIngredient1);
+    const actionAddMain2 = addIngredientsBurger(testMainIngredient2);
 
+    store.dispatch(actionAddBun);
+    store.dispatch(actionAddMain1);
+    store.dispatch(actionAddMain2);
     store.dispatch(actionMoveDownIngredient);
 
     const actualWithmoveDownIngredient = store.getState().burgerConstructor.constructorItems.ingredients;
     expect(expectInitialState.constructorItems.ingredients).toEqual(actualWithmoveDownIngredient);
+    store.dispatch(clearBurgerConstructor());
   });
 
   test('обработка экшена очиcтки конструктора', () => {
@@ -166,10 +174,15 @@ describe('проверяем редьюсер burgerConstructoSlice', () => {
     };
 
     const actionClearBurger = clearBurgerConstructor();
+    const actionAddBun = addIngredientsBurger(testBunIngredient);
+    const actionAddMain1 = addIngredientsBurger(testMainIngredient1);
 
+    store.dispatch(actionAddBun);
+    store.dispatch(actionAddMain1);
     store.dispatch(actionClearBurger);
 
     const actualClearBurger = store.getState().burgerConstructor;
     expect(expectInitialState).toEqual(actualClearBurger);
   });
+
 })

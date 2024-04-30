@@ -1,14 +1,10 @@
 import { expect, test, describe } from '@jest/globals';
-import allOrdersFromApiSlice, { fetchAllOrdersFromApi } from './allOrdersFromApiSlice';
+import allOrdersFromApiSlice, {
+  fetchAllOrdersFromApi,
+  initialState
+} from './allOrdersFromApiSlice';
 
 describe('проверяем редьюсер allOrdersFromApiSlice', () => {
-  const initialState = {
-    feeds: [],
-    total: 0,
-    totalToday: 0,
-    isLoading: false,
-    error: undefined
-  };
 
   test('обработка экшена fetchAllOrdersFromApi.pending', () => {
     const action = { type: fetchAllOrdersFromApi.pending.type };
@@ -47,5 +43,6 @@ describe('проверяем редьюсер allOrdersFromApiSlice', () => {
       total: 77777,
       totalToday: 77,
     });
+
   });
 })

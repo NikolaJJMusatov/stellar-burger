@@ -6,20 +6,11 @@ import userSlice, {
   fetchLogoutUser,
   fetchUpdateUserData,
   userLogout,
-  clearErrorUserState
+  clearErrorUserState,
+  initialState
 } from './userSlice';
 
 describe('проверяем редьюсер userSlice', () => {
-  const initialState = {
-    profile: {
-      email: '',
-      name: ''
-    },
-    error: undefined,
-    isInit: false,
-    isReguestLoginApi: false
-  };
-
 
   describe('проверка экшенов fetchLoginUser', () => {
     test('обработка экшена fetchLoginUser.pending', () => {

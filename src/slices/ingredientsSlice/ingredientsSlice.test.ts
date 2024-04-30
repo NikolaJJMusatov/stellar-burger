@@ -1,12 +1,10 @@
 import { expect, test, describe } from '@jest/globals';
-import ingredientsSlice, { fetchIngredients } from './ingredientsSlice';
+import ingredientsSlice, {
+  fetchIngredients,
+  initialState
+} from './ingredientsSlice';
 
 describe('проверяем редьюсер ingredientSlice', () => {
-    const initialState = {
-      ingredients: [],
-      isLoading: false,
-      error: undefined
-    };
 
   test('обработка экшена fetchIngredients.pending', () => {
     const action = { type: fetchIngredients.pending.type };
