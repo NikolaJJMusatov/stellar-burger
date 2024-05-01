@@ -20,8 +20,8 @@ import '../../index.css';
 import styles from './app.module.css';
 import { useEffect } from 'react';
 import { useDispatch } from '../../services/store';
-import { fetchIngredients } from '../../slices/ingredientsSlice';
-import { fetchGetUser } from '../../slices/userSlice';
+import { fetchIngredients } from '../../slices/ingredientsSlice/ingredientsSlice';
+import { fetchGetUser } from '../../slices/userSlice/userSlice';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 const App = () => {

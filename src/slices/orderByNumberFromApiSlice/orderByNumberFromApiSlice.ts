@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getOrderByNumberApi } from '@api';
+import { getOrderByNumberApi } from '../../utils/burger-api';
 import { TOrder } from '@utils-types';
 
 interface IOrderByNumberFromApiState {
@@ -13,7 +13,7 @@ export const fetchOrderByNumberFromApi = createAsyncThunk(
   async (number: number) => getOrderByNumberApi(number)
 );
 
-const initialState: IOrderByNumberFromApiState = {
+export const initialState: IOrderByNumberFromApiState = {
   orders: [],
   isLoading: false,
   error: undefined

@@ -6,7 +6,7 @@ import {
   selectAllOrdersFromApi,
   selectAllOrdersFromApiTotal,
   selectAllOrdersFromApiTotalToday
-} from '../../slices/allOrdersFromApiSlice';
+} from '../../slices/allOrdersFromApiSlice/allOrdersFromApiSlice';
 
 const getOrders = (orders: TOrder[], status: string): number[] =>
   orders

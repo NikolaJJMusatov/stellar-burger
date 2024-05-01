@@ -5,7 +5,7 @@ import {
   fetchRegisterUser,
   clearErrorUserState,
   selectUserError
-} from '../../slices/userSlice';
+} from '../../slices/userSlice/userSlice';
 import { useSelector } from '../../services/store';
 
 export const Register: FC = () => {
