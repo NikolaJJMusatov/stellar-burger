@@ -8,7 +8,7 @@ interface IOrdersUserState {
   requestToApi: boolean;
   orderRequest: boolean;
   error: string | undefined;
-};
+}
 
 export const fetchGetOrdersApiUser = createAsyncThunk(
   'ordersUser/fetchGetOrdersApiUser',

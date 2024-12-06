@@ -16,7 +16,7 @@ interface IUserState {
   error: string | undefined;
   isInit: boolean;
   isReguestLoginApi: boolean;
-};
+}
 
 export const fetchLoginUser = createAsyncThunk(
   'user/fetchLoginUser',

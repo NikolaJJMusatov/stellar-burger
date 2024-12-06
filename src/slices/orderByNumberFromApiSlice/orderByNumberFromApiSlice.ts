@@ -6,7 +6,7 @@ interface IOrderByNumberFromApiState {
   orders: TOrder[];
   isLoading: boolean;
   error: string | undefined;
-};
+}
 
 export const fetchOrderByNumberFromApi = createAsyncThunk(
   'orderByNumberFromApi/fetchOrderByNumberFromApi',
@@ -45,9 +45,7 @@ const orderByNumberFromApiSlice = createSlice({
   }
 });
 
-export const {
-  selectOrdersByNumberFromApi,
-  selectOrdersByNumberIsLoading
-} = orderByNumberFromApiSlice.selectors;
+export const { selectOrdersByNumberFromApi, selectOrdersByNumberIsLoading } =
+  orderByNumberFromApiSlice.selectors;
 
 export default orderByNumberFromApiSlice.reducer;

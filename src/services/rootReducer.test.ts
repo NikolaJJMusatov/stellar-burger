@@ -1,4 +1,4 @@
-import { rootReducer } from "./store";
+import { rootReducer } from './store';
 import { configureStore } from '@reduxjs/toolkit';
 
 test('проверяем инициализацию rootReducer', () => {

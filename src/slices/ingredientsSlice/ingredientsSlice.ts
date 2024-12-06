@@ -6,7 +6,7 @@ interface IingredientsListState {
   ingredients: TIngredient[];
   isLoading: boolean;
   error: string | undefined;
-};
+}
 
 export const fetchIngredients = createAsyncThunk(
   'ingredients/fetchIngredients',
@@ -45,9 +45,7 @@ const ingredientsSlice = createSlice({
   }
 });
 
-export const {
-  selectIngredients,
-  selectIngredientsIsLoading
-} = ingredientsSlice.selectors;
+export const { selectIngredients, selectIngredientsIsLoading } =
+  ingredientsSlice.selectors;
 
 export default ingredientsSlice.reducer;

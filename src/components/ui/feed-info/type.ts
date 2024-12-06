@@ -1,4 +1,4 @@
-import { TOrder } from "@utils-types";
+import { TOrder } from '@utils-types';
 
 export type FeedInfoUIProps = {
   feed: {
@@ -6,7 +6,7 @@ export type FeedInfoUIProps = {
     total: number;
     totalToday: number;
     isLoading?: boolean;
-    error?: string|null
+    error?: string | null;
   };
   readyOrders: number[];
   pendingOrders: number[];

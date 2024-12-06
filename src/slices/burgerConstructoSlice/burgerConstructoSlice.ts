@@ -6,7 +6,7 @@ interface IBurgerConstructorState {
     bun: TConstructorIngredient | null;
     ingredients: TConstructorIngredient[];
   };
-};
+}
 
 export const initialState: IBurgerConstructorState = {
   constructorItems: {
@@ -48,28 +48,32 @@ const burgerConstructorSlice = createSlice({
       sliceState.constructorItems = { bun: null, ingredients: [] };
     },
 
-    moveUpIngredientInBurger: (
-      sliceState,
-      action: PayloadAction<number>
-    ) => {
-      const selectIngredient = sliceState.constructorItems.ingredients[action.payload];
-      const swapIngredient = sliceState.constructorItems.ingredients[action.payload - 1];
-      
+    moveUpIngredientInBurger: (sliceState, action: PayloadAction<number>) => {
+      const selectIngredient =
+        sliceState.constructorItems.ingredients[action.payload];
+      const swapIngredient =
+        sliceState.constructorItems.ingredients[action.payload - 1];
+
       sliceState.constructorItems.ingredients.splice(
-        action.payload - 1, 2, selectIngredient, swapIngredient
-      )
+        action.payload - 1,
+        2,
+        selectIngredient,
+        swapIngredient
+      );
     },
 
-    moveDownIngredientInBurger: (
-      sliceState,
-      action: PayloadAction<number>
-    ) => {
-      const selectIngredient = sliceState.constructorItems.ingredients[action.payload];
-      const swapIngredient = sliceState.constructorItems.ingredients[action.payload + 1];
+    moveDownIngredientInBurger: (sliceState, action: PayloadAction<number>) => {
+      const selectIngredient =
+        sliceState.constructorItems.ingredients[action.payload];
+      const swapIngredient =
+        sliceState.constructorItems.ingredients[action.payload + 1];
 
       sliceState.constructorItems.ingredients.splice(
-        action.payload, 2, swapIngredient, selectIngredient
-      )
+        action.payload,
+        2,
+        swapIngredient,
+        selectIngredient
+      );
     }
   },
 

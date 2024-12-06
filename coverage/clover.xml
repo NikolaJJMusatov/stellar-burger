@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1714475186057" clover="3.2.0">
-  <project timestamp="1714475186057" name="All files">
+<coverage generated="1733461624751" clover="3.2.0">
+  <project timestamp="1733461624752" name="All files">
     <metrics statements="830" coveredstatements="623" conditionals="48" coveredconditionals="47" methods="51" coveredmethods="14" elements="929" coveredelements="684" complexity="0" loc="830" ncloc="830" packages="8" files="9" classes="9"/>
     <package name="services">
       <metrics statements="33" coveredstatements="33" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -111,9 +111,9 @@
       </file>
     </package>
     <package name="slices.burgerConstructoSlice">
-      <metrics statements="92" coveredstatements="90" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="6"/>
+      <metrics statements="96" coveredstatements="94" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="6"/>
       <file name="burgerConstructoSlice.ts" path="C:\Users\user\dev\stellar-burger\src\slices\burgerConstructoSlice\burgerConstructoSlice.ts">
-        <metrics statements="92" coveredstatements="90" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="6"/>
+        <metrics statements="96" coveredstatements="94" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -176,9 +176,9 @@
         <line num="60" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
-        <line num="63" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="63" count="1" type="stmt"/>
         <line num="64" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
+        <line num="65" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="66" count="1" type="stmt"/>
         <line num="67" count="1" type="stmt"/>
         <line num="68" count="1" type="stmt"/>
@@ -206,12 +206,16 @@
         <line num="90" count="1" type="stmt"/>
         <line num="91" count="1" type="stmt"/>
         <line num="92" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
       </file>
     </package>
     <package name="slices.ingredientsSlice">
-      <metrics statements="53" coveredstatements="53" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
+      <metrics statements="51" coveredstatements="51" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
       <file name="ingredientsSlice.ts" path="C:\Users\user\dev\stellar-burger\src\slices\ingredientsSlice\ingredientsSlice.ts">
-        <metrics statements="53" coveredstatements="53" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <metrics statements="51" coveredstatements="51" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -263,14 +267,12 @@
         <line num="49" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
       </file>
     </package>
     <package name="slices.orderByNumberFromApiSlice">
-      <metrics statements="53" coveredstatements="53" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
+      <metrics statements="51" coveredstatements="51" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
       <file name="orderByNumberFromApiSlice.ts" path="C:\Users\user\dev\stellar-burger\src\slices\orderByNumberFromApiSlice\orderByNumberFromApiSlice.ts">
-        <metrics statements="53" coveredstatements="53" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <metrics statements="51" coveredstatements="51" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -322,8 +324,6 @@
         <line num="49" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
       </file>
     </package>
     <package name="slices.ordersUserSlice">

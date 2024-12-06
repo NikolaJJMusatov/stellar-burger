@@ -6,7 +6,6 @@ import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 import { selectIngredients } from '../../slices/ingredientsSlice/ingredientsSlice';
 
 export const BurgerIngredients: FC = () => {
-
   const allIngredients = useSelector(selectIngredients);
 
   const buns = useMemo(() => {
